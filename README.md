@@ -1,2 +1,7 @@
-# class-02
-Code 201 lab for Class-02: Introduction To Web Development
+# Class-02: Introduction To Web Development
+
+## Basics of HTML, CSS & JS
+
+Lighthouse score:
+
+![Alt text](img/lighthouse.png)
