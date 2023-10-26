@@ -1,12 +1,14 @@
+//lana's comment for class 04
+
 "use strict";
 const cl = (input) => { console.log(input) };
 /* [*] Create an About Me guessing game that utilizes HTML, CSS, & JavaScript. */
 /* [*] Ask the user their name through a prompt() */
 const getName = prompt(`Hello friend! What is thy name?`);
 
-/* 
-[*] Display that name back to the user through a custom greeting 
-welcoming them to your site. 
+/*
+[*] Display that name back to the user through a custom greeting
+welcoming them to your site.
 */
 alert(`Welcome ${getName}! \nLet's play a quick guessing game \
 to see how much you know about me.\nAnswer "y" for yes or "n" \
@@ -15,13 +17,13 @@ for no for each question.`);
 // Question Number Incrementor
 let n = 0;
 
-/* 
-[*] Prompt the user a total of exactly five yes or no questions. 
-    The user input for the answer must accept either y/n or yes/no 
-    responses while taking into consideration case sensitivity by 
-    normalizing the user input so that it can be validated. Be sure 
-    to let the user know if they answered the question correctly by 
-    alerting them with a response. 
+/*
+[*] Prompt the user a total of exactly five yes or no questions.
+    The user input for the answer must accept either y/n or yes/no
+    responses while taking into consideration case sensitivity by
+    normalizing the user input so that it can be validated. Be sure
+    to let the user know if they answered the question correctly by
+    alerting them with a response.
 */
 
 /* [*] Add console.log() messages within your app to notify the user if they are correct. */
@@ -131,8 +133,8 @@ switch (question5.toLowerCase()) {
 }
 
 // Question 6 ====================================================/
-/*  
-[] Add a 6th question to the guessing game that takes in a numeric 
+/*
+[] Add a 6th question to the guessing game that takes in a numeric
     input by prompting the user to guess a number.
 */
 const question6 = () => {
@@ -142,7 +144,7 @@ const question6 = () => {
 function checkNumber() {
   let askQuestion = question6();
   let chances = 1;
-  
+
   while(isNaN(askQuestion)) {
     if (chances > 4) {
       break;
@@ -176,8 +178,8 @@ function checkNumber() {
 }
 
 // Question 7 ====================================================/
-/*  
-[] Add a 6th question to the guessing game that takes in a numeric 
+/*
+[] Add a 6th question to the guessing game that takes in a numeric
     input by prompting the user to guess a number.
 */
 const question7 = () => {
@@ -188,7 +190,7 @@ const possibleAnswers = ['io', 'europa', 'ganymede', 'callisto'];
 
 function checkAnswer() {
   let getAnswer = question7();
-  
+
   for (let i = 1; i <= 7; i++) {
     if(i == 7) {
       alert(`You have exhausted the number of guesses allowed (7)`);
