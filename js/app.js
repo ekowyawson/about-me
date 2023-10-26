@@ -1,22 +1,32 @@
 "use strict";
-/* [*] Create an About Me guessing game that utilizes HTML, CSS, & JavaScript. */
-
 const cl = (input) => { console.log(input) };
-
+/* [*] Create an About Me guessing game that utilizes HTML, CSS, & JavaScript. */
 /* [*] Ask the user their name through a prompt() */
-let getName = prompt(`Hello friend! What is thy name?`);
+const getName = prompt(`Hello friend! What is thy name?`);
 
-/* [*] Display that name back to the user through a custom greeting welcoming them to your site. */
-alert(`Welcome ${getName}! \nLet's play a quick guessing game to see how much you know about me.\nAnswer "y" for yes or "n" for no for each question.`);
+/* 
+[*] Display that name back to the user through a custom greeting 
+welcoming them to your site. 
+*/
+alert(`Welcome ${getName}! \nLet's play a quick guessing game \
+to see how much you know about me.\nAnswer "y" for yes or "n" \
+for no for each question.`);
 
 // Question Number Incrementor
 let n = 0;
 
-/* [*] Prompt the user a total of exactly five yes or no questions. The user input for the answer must accept either y/n or yes/no responses while taking into consideration case sensitivity by normalizing the user input so that it can be validated. Be sure to let the user know if they answered the question correctly by alerting them with a response. */
+/* 
+[*] Prompt the user a total of exactly five yes or no questions. 
+    The user input for the answer must accept either y/n or yes/no 
+    responses while taking into consideration case sensitivity by 
+    normalizing the user input so that it can be validated. Be sure 
+    to let the user know if they answered the question correctly by 
+    alerting them with a response. 
+*/
 
 /* [*] Add console.log() messages within your app to notify the user if they are correct. */
 // Question 1 ====================================================/
-let question1 = prompt(`Is my favorite food lobster and shrimp? [y|n]`);
+const question1 = prompt(`Is my favorite food lobster and shrimp? [y|n]`);
 
 switch (question1.toLowerCase()) {
   case "y":
@@ -37,7 +47,7 @@ switch (question1.toLowerCase()) {
 }
 
 // Question 2 ====================================================/
-let question2 = prompt(`Am I 28 years old? [y|n]`);
+const question2 = prompt(`Am I 28 years old? [y|n]`);
 
 switch (question2.toLowerCase()) {
   case "y":
@@ -58,7 +68,7 @@ switch (question2.toLowerCase()) {
 }
 
 // Question 3 ====================================================/
-let question3 = prompt(`Is my height exactly 6ft? [y|n]`);
+const question3 = prompt(`Is my height exactly 6ft? [y|n]`);
 
 switch (question3.toLowerCase()) {
   case "y":
@@ -79,7 +89,7 @@ switch (question3.toLowerCase()) {
 }
 
 // Question 4 ====================================================/
-let question4 = prompt(`Do I have any pets? [y|n]`);
+const question4 = prompt(`Do I have any pets? [y|n]`);
 
 switch (question4.toLowerCase()) {
   case "y":
@@ -100,7 +110,7 @@ switch (question4.toLowerCase()) {
 }
 
 // Question 5 ====================================================/
-let question5 = prompt(`Did I jump out of perfectly good aircraft while in the Army? [y|n]`);
+const question5 = prompt(`Did I jump out of perfectly good aircraft while in the Army? [y|n]`);
 
 switch (question5.toLowerCase()) {
   case "y":
@@ -113,13 +123,92 @@ switch (question5.toLowerCase()) {
   case "n":
   case "no":
   case "nope":
-    // cl("Incorrect. I did jump out of aircraft while in the army and hit the ground hard as crap every time.");
+    // cl("Incorrect");
     alert("Incorrect. I did jump out of aircraft while in the army and hit the ground hard as crap every time.");
     break;
   default:
     cl("You did not answer question 5.");
 }
 
-/* [*] Display the user’s name back to them in your final message to the user. */
+// Question 6 ====================================================/
+/*  
+[] Add a 6th question to the guessing game that takes in a numeric 
+    input by prompting the user to guess a number.
+*/
+const question6 = () => {
+  return prompt(`Guess the number of push-ups I can do in one minute:`);
+}
+
+function checkNumber() {
+  let askQuestion = question6();
+  let chances = 1;
+  
+  while(isNaN(askQuestion)) {
+    if (chances > 4) {
+      break;
+    }
+    alert(`${askQuestion} is not a number. Try again\n[Attempt ${chances} of 4]`);
+    chances++
+    askQuestion = question6();
+  }
+
+  while(askQuestion != 70) {
+    if (chances > 4) {
+      break;
+    }
+    switch (true) {
+      case (askQuestion > 70):
+        alert(`${askQuestion} is too high. Try again\n[Attempt ${chances} of 4]`);
+        break;
+      case (askQuestion < 70):
+        alert(`${askQuestion} is too low. Try again\n[Attempt ${chances} of 4]`);
+        break;
+    }
+    chances++
+    askQuestion = question6();
+  }
+
+  if(chances >= 5) {
+    alert(`SORRY! You have run out of chances. The answer is 70`);
+  } else {
+    alert(`BINGO! ${askQuestion} is correct!`);
+  }
+}
+
+// Question 7 ====================================================/
+/*  
+[] Add a 6th question to the guessing game that takes in a numeric 
+    input by prompting the user to guess a number.
+*/
+const question7 = () => {
+  return prompt(`Name one of Jupiter's four largest moons:`);
+}
+
+const possibleAnswers = ['io', 'europa', 'ganymede', 'callisto'];
+
+function checkAnswer() {
+  let getAnswer = question7();
+  
+  for (let i = 1; i <= 7; i++) {
+    if(i == 7) {
+      alert(`You have exhausted the number of guesses allowed (7)`);
+      alert(`The possible answer are ${possibleAnswers}`);
+      break;
+    }
+
+    if (possibleAnswers.includes(getAnswer.toLowerCase())) {
+      alert(`BINGO! ${getAnswer} is correct!`);
+      break;
+    } else {
+      alert(`Sorry ${getAnswer} is incorrect. Try again.`);
+      getAnswer = question7();
+    }
+  }
+}
+
+// /* [*] Display the user’s name back to them in your final message to the user. */
 alert(`${getName} you answered ${n} out of 5 questions correct!`);
-// cl(`You answered ${n} out of 5 questions correct!`);
+// // cl(`You answered ${n} out of 5 questions correct!`);
+
+checkNumber();
+checkAnswer();
