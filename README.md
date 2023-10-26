@@ -4,4 +4,8 @@
 
 Lighthouse score:
 
-![Alt text](img/lighthouse.png)
+![Lighthouse 1](img/lighthouse.png)
+
+Lighthouse score #2
+
+![Lighthouse 2](img/lighthouse2.png)
